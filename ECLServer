@@ -1,0 +1,3 @@
+#!/bin/bash
+
+service hpcc-init -c eclserver status|tail -1

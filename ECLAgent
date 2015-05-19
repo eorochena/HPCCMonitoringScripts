@@ -1,0 +1,3 @@
+#!/bin/bash
+
+service hpcc-init -c eclagent status|tail -1

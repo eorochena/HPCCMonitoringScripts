@@ -1,0 +1,12 @@
+#!/bin/bash
+
+ps ax|grep thorslave_lcr|grep -v grep &> /dev/null
+returncode=$?
+
+if [ ${returncode} -eq 0 ];then
+	echo "ThorSlave is running"
+else
+	if [ ${returncode} -eq 1 ] || [ ${returncode} -eq 2 ];then
+		echo "ThorSlave not running" 
+	fi
+fi

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+service hpcc-init -c eclscheduler status|tail -1

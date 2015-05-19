@@ -1,0 +1,3 @@
+#!/bin/bash
+
+service hpcc-init -c dfuserver status|tail -1
