@@ -1,0 +1,14 @@
+#!/bin/bash
+
+status=$(service hpcc-init -c eclccserver status|tail -1|grep eclccserver|grep -v grep|awk '{print $NF}')
+
+for state in $status
+do 
+	if [ $status == 'stopped...' ]
+	then
+		echo "is stopped"
+	elif [ $status == 'running...' ]
+	then
+		echo 'is running'
+	fi
+done
