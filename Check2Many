@@ -1,0 +1,12 @@
+#!/usr/bin/python
+
+import re, sys, os, time
+
+cmd = "tail -500 /var/log/HPCCSystems/*roxie*/roxie.log"
+run_it = os.popen(cmd).readlines()
+
+for i in run_it:
+        if re.search('Too many active queries',  i):
+                print i.strip('\n')
+                sys.exit(2)
+

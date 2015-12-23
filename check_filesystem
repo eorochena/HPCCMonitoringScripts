@@ -1,0 +1,4 @@
+cmd=$(dmesg|grep -i ext4|grep -i error)
+cmd2=$(dmesg|grep -i ext4|grep -i corrupted)
+echo $cmd $cmd2
+

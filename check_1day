@@ -1,0 +1,12 @@
+#!/usr/bin/python
+
+import os, time, socket
+
+ls = "cd /var/log/HPCCSystems/*roxie*;ls -tr|tail -3|head -1"
+log = os.popen(ls).readline().strip()
+full = "/var/log/HPCCSystems/*roxie*/"+log
+cmd = "grep -c \"QUERY:\" %s" % full
+run_it = os.popen(cmd).readline().strip()
+
+print run_it
+

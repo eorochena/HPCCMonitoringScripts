@@ -1,0 +1,11 @@
+#!/usr/bin/python
+
+import os, math
+
+values = []
+
+for i in os.getloadavg():
+        rounded = math.ceil(i)
+        values.append(rounded)
+print "(1 minute:%s)  (5 minutes:%s)  (15 minutes:%s)" % (values[0], values[1], values[2])
+

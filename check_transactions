@@ -1,0 +1,9 @@
+#!/usr/bin/python
+
+import re, sys, os, time
+
+cmd = "grep -c \"QUERY:\" /var/log/HPCCSystems/*roxie*/roxie.log"
+run_it = os.popen(cmd).readlines()
+
+print run_it[0].strip()
+
