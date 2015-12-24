@@ -1,12 +1,12 @@
 #!/bin/bash
 
-BadStatus=$(service hpcc-init status|grep eclccserver|grep stopped|tail -1|awk '{print $NF}')
-GoodStatus=$(service hpcc-init status|grep eclccserver|grep running|tail -1|awk '{print $NF}')
+BadStatus=$(service hpcc-init status|grep eclccserver|grep stopped|tail -1|awk '{print $(NF - 1)}')
+GoodStatus=$(service hpcc-init status|grep eclccserver|grep running|tail -1|awk '{print $(NF - 1)}')
 
-if [ $BadStatus == 'stopped...' ]
+if [[ $BadStatus == 'stopped' ]]
 then
 	echo "is stopped"
-elif [ $GoodStatus == 'running...' ]
+elif [[ $GoodStatus == 'running' ]]
 then
 	echo "is running"
 fi
