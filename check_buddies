@@ -1,0 +1,3 @@
+#!/bin/bash
+
+arp -n|grep -v Address|awk '{printf "%s,",$1} END {print ""}'
