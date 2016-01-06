@@ -1,12 +1,12 @@
 #!/bin/bash
 
-ps ax|grep thor|grep -v grep &> /dev/null
-returncode=$?
+running_slaves=$(ps ax|grep thor|grep -vc grep)
+conf_slaves=$(cat /var/lib/HPCCSystems/*thor*/thorgroup.slave |grep -wc "10.241.100.1")
 
-if [ ${returncode} -eq 0 ];then
-	echo "ThorSlave is running"
+if [ $running_slaves == $conf_slaves ]
+then
+        echo "$running_slaves thorslaves processes are running"
 else
-	if [ ${returncode} -eq 1 ] || [ ${returncode} -eq 2 ];then
-		echo "ThorSlave not running" 
-	fi
+        echo "A ThorSlave process might be down showing $running_slaves instead of $conf_slaves"
 fi
+
