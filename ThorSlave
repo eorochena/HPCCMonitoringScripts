@@ -2,7 +2,7 @@
 
 host=$(hostname -i)
 running_slaves=$(ps ax|grep thor|grep -vc grep)
-conf_slaves=$(cat /var/lib/HPCCSystems/*thor*/thorgroup.slave |grep -wc "$host")
+conf_slaves=$(cat /var/lib/HPCCSystems/*thor*/thorgroup.slave |sort -u|grep -wc "$host")
 
 if [ $running_slaves == $conf_slaves ]
 then
