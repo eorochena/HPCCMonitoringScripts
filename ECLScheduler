@@ -1,13 +1,5 @@
 #!/bin/bash
 
-BadStatus=$(service hpcc-init -c eclscheduler status|grep stopped|tail -1|awk '{print $(NF - 1)}')
-GoodStatus=$(service hpcc-init -c eclscheduler status|grep running|tail -1|awk '{print $(NF - 1)}')
+service hpcc-init -c eclscheduler status|tail -1
 
-if [[ $BadStatus == 'stopped' ]]
-then
-	echo "is stopped"
-elif [[ $GoodStatus == 'running' ]]
-then
-	echo "is running"
-fi
 
