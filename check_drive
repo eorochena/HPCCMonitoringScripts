@@ -1,0 +1,3 @@
+#!/bin/bash
+
+dmesg|egrep -m 2 "I/O error|sense|SCSI error"|egrep -v egrep
