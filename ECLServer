@@ -1,5 +1,6 @@
 #!/bin/bash
 
-service hpcc-init -c eclserver status|tail -1
+service hpcc-init -c eclserver status|tr -s '\n' '  '
+
 
 
