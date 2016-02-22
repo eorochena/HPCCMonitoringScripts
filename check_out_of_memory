@@ -1,0 +1,3 @@
+#!/bin/bash
+
+dmesg|egrep -m 2 "Out of memory"|egrep -v egrep 
